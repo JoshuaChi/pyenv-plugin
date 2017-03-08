@@ -18,7 +18,7 @@ module Pyenv
     class Git < Base
       def checkout
         execute = []
-        execute << "git clone #{repository.shellescape} #{destination.shellescape}"
+        execute << "git clone --depth 1  #{repository.shellescape} #{destination.shellescape}"
         execute << "cd #{destination.shellescape}"
         execute << "git checkout #{revision.shellescape}"
         execute.join(" && ")
